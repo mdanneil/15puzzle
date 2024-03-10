@@ -1,3 +1,5 @@
+import "./Tile.css";
+
 interface TileProps {
   number: number;
 }
