@@ -36,3 +36,17 @@
   border-radius: 5px;
   margin-right: 10px;
 }
+
+.shuffle-button {
+  background-color: rgb(34, 68, 205);
+  border: none;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-size: 3vw;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 5%;
+  cursor: pointer;
+  border-radius: 5px;
+}
