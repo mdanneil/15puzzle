@@ -10,8 +10,8 @@ interface BoardProps {
 }
 
 const Board = ({ numRows, numCols, tiles, setTiles }: BoardProps) => {
-  const handleClick = (row: number, col: number) => {
-    const clickedIndex: number = row * numCols + col;
+  const handleClick = (index: number) => {
+    const clickedIndex: number = index;
     const blankIndex: number = tiles.indexOf(0);
 
     const direction = getDirection(clickedIndex, blankIndex, numCols);
@@ -36,15 +36,12 @@ const Board = ({ numRows, numCols, tiles, setTiles }: BoardProps) => {
       }}
     >
       {tiles.map((tileNumber: number, index: number) => {
-        const row = Math.floor(index / numCols);
-        const col = index % numCols;
-
         return (
           <Tile
             key={index}
             number={tileNumber}
             isBlank={tileNumber === 0}
-            onClick={() => handleClick(row, col)}
+            onClick={() => handleClick(index)}
           />
         );
       })}

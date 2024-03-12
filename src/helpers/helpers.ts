@@ -39,51 +39,31 @@ export const moveTiles = (
   numCols: number
 ): number[] => {
   let newTiles = [...tiles];
-  let start;
-  let end;
-  const colTiles: { [key: number]: number } = {};
-  const rowTiles: { [key: number]: number } = {};
+  let start =
+    direction === "left" || direction === "down" ? blankIndex : clickedIndex;
+  let end =
+    direction === "left" || direction === "down" ? clickedIndex : blankIndex;
 
   switch (direction) {
     case "left":
-      start = Math.min(clickedIndex, blankIndex);
-      end = Math.max(clickedIndex, blankIndex);
-      for (let i = start; i <= end; i++) {
-        rowTiles[i] = tiles[i];
-      }
       for (let i = start; i < end; i++) {
         newTiles[i] = newTiles[i + 1];
       }
       newTiles[end] = tiles[start];
       return newTiles;
     case "right":
-      start = Math.min(clickedIndex, blankIndex);
-      end = Math.max(clickedIndex, blankIndex);
-      for (let i = start; i <= end; i++) {
-        rowTiles[i] = tiles[i];
-      }
       for (let i = end; i >= start; i--) {
         newTiles[i] = newTiles[i - 1];
       }
       newTiles[start] = tiles[end];
       return newTiles;
     case "up":
-      start = Math.max(clickedIndex, blankIndex);
-      end = Math.min(clickedIndex, blankIndex);
-      for (let i = start; i >= end; i -= numCols) {
-        colTiles[i] = tiles[i];
-      }
       for (let i = end; i < start; i += numCols) {
         newTiles[i] = newTiles[i + numCols];
       }
       newTiles[start] = tiles[end];
       return newTiles;
     case "down":
-      start = Math.max(clickedIndex, blankIndex);
-      end = Math.min(clickedIndex, blankIndex);
-      for (let i = start; i >= end; i -= numCols) {
-        colTiles[i] = tiles[i];
-      }
       for (let i = start; i > end; i -= numCols) {
         newTiles[i] = newTiles[i - numCols];
       }
