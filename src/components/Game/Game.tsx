@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Board from "../Board/Board";
-import "./Game.css";
 import { shuffleTiles } from "../../helpers/helpers";
+import "./Game.css";
 
 const Game = () => {
   const [numRows, setNumRows] = useState(4);
@@ -31,7 +31,12 @@ const Game = () => {
       <h1>15 Puzzle Game</h1>
       <div className="game-container">
         <div className="board-container">
-          <Board tiles={tiles} numRows={numRows} numCols={numCols} />
+          <Board
+            tiles={tiles}
+            numRows={numRows}
+            numCols={numCols}
+            setTiles={setTiles}
+          />
         </div>
         <div className="options">
           <label htmlFor="rows">Rows:</label>
