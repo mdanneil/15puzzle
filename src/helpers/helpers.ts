@@ -75,3 +75,12 @@ export const moveTiles = (
   }
   return newTiles;
 };
+
+export const isSolved = (tiles: number[]): boolean => {
+  for (let i = 0; i < tiles.length - 1; i++) {
+    if (tiles[i] !== i + 1) {
+      return false;
+    }
+  }
+  return tiles[tiles.length - 1] === 0;
+};

@@ -1,5 +1,5 @@
 import Tile from "../Tile/Tile";
-import { getDirection, moveTiles } from "../../helpers/helpers";
+import { getDirection, isSolved, moveTiles } from "../../helpers/helpers";
 import "./Board.css";
 
 interface BoardProps {
@@ -7,9 +7,16 @@ interface BoardProps {
   numCols: number;
   tiles: number[];
   setTiles: React.Dispatch<React.SetStateAction<number[]>>;
+  setIsSolved: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Board = ({ numRows, numCols, tiles, setTiles }: BoardProps) => {
+const Board = ({
+  numRows,
+  numCols,
+  tiles,
+  setTiles,
+  setIsSolved,
+}: BoardProps) => {
   const handleClick = (index: number) => {
     const clickedIndex: number = index;
     const blankIndex: number = tiles.indexOf(0);
@@ -25,6 +32,9 @@ const Board = ({ numRows, numCols, tiles, setTiles }: BoardProps) => {
     );
 
     setTiles(newTiles);
+    if (isSolved(newTiles)) {
+      setIsSolved(true);
+    }
   };
 
   return (
