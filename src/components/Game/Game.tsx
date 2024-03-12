@@ -41,7 +41,6 @@ const Game = () => {
 
   return (
     <div className="game">
-      <button onClick={handleSolve}>solve</button>
       <h1>15 Puzzle Game</h1>
       <div className="game-container">
         <div className="board-container">
@@ -59,26 +58,33 @@ const Game = () => {
           )}
         </div>
         <div className="options">
-          <label htmlFor="rows">Rows:</label>
-          <input
-            type="number"
-            id="rows"
-            value={numRows}
-            min={1}
-            onChange={handleRowsChange}
-          />
-          <label htmlFor="cols">Columns:</label>
-          <input
-            type="number"
-            id="cols"
-            value={numCols}
-            min={1}
-            onChange={handleColsChange}
-          />
+          <div className="input-fields">
+            <label htmlFor="rows">Rows:</label>
+            <input
+              type="number"
+              id="rows"
+              value={numRows}
+              min={1}
+              onChange={handleRowsChange}
+            />
+            <label htmlFor="cols">Columns:</label>
+            <input
+              type="number"
+              id="cols"
+              value={numCols}
+              min={1}
+              onChange={handleColsChange}
+            />
+          </div>
+          <div className="buttons">
+            <button className="solve-button" onClick={handleSolve}>
+              Solve
+            </button>
+            <button className="shuffle-button" onClick={handleShuffle}>
+              Shuffle Tiles
+            </button>
+          </div>
         </div>
-        <button className="shuffle-button" onClick={handleShuffle}>
-          Shuffle Tiles
-        </button>
       </div>
     </div>
   );

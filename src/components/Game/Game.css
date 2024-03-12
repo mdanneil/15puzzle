@@ -22,7 +22,10 @@
 
 .options {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .options label {
@@ -37,6 +40,26 @@
   margin-right: 10px;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+}
+
+.solve-button {
+  background-color: #2cef60;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 3vw;
+  font-weight: bold;
+  width: 30%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .shuffle-button {
   background-color: rgb(34, 68, 205);
   border: none;
@@ -45,8 +68,7 @@
   text-align: center;
   font-size: 3vw;
   font-weight: bold;
-  width: 100%;
-  margin-top: 5%;
+  width: 70%;
   cursor: pointer;
   border-radius: 5px;
 }
