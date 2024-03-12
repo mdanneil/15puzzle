@@ -41,6 +41,7 @@ const Board = ({ numRows, numCols, tiles, setTiles }: BoardProps) => {
             key={index}
             number={tileNumber}
             isBlank={tileNumber === 0}
+            isCorrectPosition={tileNumber === index + 1}
             onClick={() => handleClick(index)}
           />
         );
