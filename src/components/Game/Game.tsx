@@ -4,34 +4,25 @@ import { shuffleTiles } from "../../helpers/helpers";
 import "./Game.css";
 
 const Game = () => {
-  const [numRows, setNumRows] = useState(4);
-  const [numCols, setNumCols] = useState(4);
+  const [gridSize, setGridSize] = useState({ rows: 4, cols: 4 });
   const [tiles, setTiles] = useState<number[]>([]);
   const [isSolved, setIsSolved] = useState<boolean>(false);
 
   useEffect(() => {
-    const shuffledTiles = shuffleTiles(numRows, numCols);
+    const shuffledTiles = shuffleTiles(gridSize.rows, gridSize.cols);
     setTiles(shuffledTiles);
     setIsSolved(false);
-  }, [numRows, numCols]);
-
-  const handleRowsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNumRows(parseInt(e.target.value));
-  };
-
-  const handleColsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNumCols(parseInt(e.target.value));
-  };
+  }, [gridSize]);
 
   const handleShuffle = () => {
-    const shuffledTiles = shuffleTiles(numRows, numCols);
+    const shuffledTiles = shuffleTiles(gridSize.rows, gridSize.cols);
     setTiles(shuffledTiles);
     setIsSolved(false);
   };
 
   const handleSolve = () => {
     const solvedTiles = Array.from(
-      { length: numRows * numCols },
+      { length: gridSize.rows * gridSize.cols },
       (_, index) => index + 1
     );
     solvedTiles[solvedTiles.length - 1] = 0;
@@ -46,8 +37,8 @@ const Game = () => {
         <div className="board-container">
           <Board
             tiles={tiles}
-            numRows={numRows}
-            numCols={numCols}
+            numRows={gridSize.rows}
+            numCols={gridSize.cols}
             setTiles={setTiles}
             setIsSolved={setIsSolved}
           />
@@ -63,17 +54,21 @@ const Game = () => {
             <input
               type="number"
               id="rows"
-              value={numRows}
+              value={gridSize.rows}
               min={1}
-              onChange={handleRowsChange}
+              onChange={(e) =>
+                setGridSize({ ...gridSize, rows: parseInt(e.target.value) })
+              }
             />
             <label htmlFor="cols">Columns:</label>
             <input
               type="number"
               id="cols"
-              value={numCols}
+              value={gridSize.cols}
               min={1}
-              onChange={handleColsChange}
+              onChange={(e) =>
+                setGridSize({ ...gridSize, cols: parseInt(e.target.value) })
+              }
             />
           </div>
           <div className="buttons">
