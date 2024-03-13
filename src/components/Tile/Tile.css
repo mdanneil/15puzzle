@@ -2,15 +2,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10vw;
-  height: 10vw;
-  font-size: 5vw;
+  width: 100px;
+  height: 100px;
+  font-size: 70px;
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 10px;
 }
+
 .tile:hover {
   background-color: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .tile {
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+  }
 }

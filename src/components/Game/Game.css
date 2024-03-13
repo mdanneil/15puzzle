@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -29,8 +30,7 @@
 }
 
 .options label {
-  font-size: 12px;
-  line-height: 24px;
+  font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -47,7 +47,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px;
+  height: 100px;
+  padding: 0px 60px;
   gap: 10px;
 }
 
@@ -56,7 +57,7 @@
   color: white;
   border: none;
   text-align: center;
-  font-size: 3vw;
+  font-size: 50px;
   font-weight: bold;
   width: 30%;
   cursor: pointer;
@@ -66,10 +67,9 @@
 .shuffle-button {
   background-color: rgb(34, 68, 205);
   border: none;
-  padding: 20px;
   color: white;
   text-align: center;
-  font-size: 3vw;
+  font-size: 50px;
   font-weight: bold;
   width: 70%;
   cursor: pointer;
@@ -84,4 +84,29 @@
   justify-content: center;
   font-size: 24px;
   color: black;
+}
+
+@media screen and (max-width: 600px) {
+  .game-container {
+    border: none;
+    padding: 15px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shuffle-button {
+    width: 400px;
+    height: 50px;
+    font-size: 5vw;
+  }
+
+  .solve-button {
+    width: 400px;
+    height: 50px;
+    font-size: 5vw;
+  }
 }
