@@ -1,13 +1,12 @@
 export const shuffleTiles = (numRows: number, numCols: number) => {
   let tiles: number[];
   do {
-    tiles = Array.from({ length: numRows * numCols }, (_, index) => index + 1);
+    tiles = Array.from({ length: numRows * numCols }, (_, index) => index);
     for (let i = tiles.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
     }
   } while (tiles.some((tile, index) => tile === index + 1));
-  tiles[tiles.length - 1] = 0;
   return tiles;
 };
 
